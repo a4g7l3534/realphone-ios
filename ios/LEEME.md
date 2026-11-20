@@ -23,13 +23,13 @@ por fuera: TrollStore, SideStore o AltStore.
 
 Hace falta macOS (Xcode, el SDK de iOS y `ldid`). Desde Windows se compila con GitHub Actions:
 
-1. Sube esta carpeta `RealPhone` a un repositorio de GitHub. El `.gitignore` de la raíz solo deja entrar lo que
-   necesita la compilación (59 archivos, unos 103 MB con los jars de RealClient): `ios/`, el workflow y
-   `engine-src/integracion/realphone/src/main/assets/realclient/`. Las llaves (`*.jks`, `*.keystore`,
+1. El repositorio es https://github.com/a4g7l3534/realphone-ios (público: la GPL obliga a dar el código y así
+   Actions no cuesta). El `.gitignore` de la raíz solo deja entrar lo que necesita la compilación: `ios/`, el
+   workflow y `engine-src/integracion/realphone/src/main/assets/realclient/`. Las llaves (`*.jks`, `*.keystore`,
    `realphone.properties`, `backend/ADMIN_TOKEN.txt`, `backend/private.jwk.json`) quedan fuera.
-2. En GitHub abre **Actions > RealPhone iOS > Run workflow**. Tarda bastante: compila el motor entero y descarga
-   los Java para iOS.
-3. Cuando termine, en la ejecución aparecen tres descargas:
+2. Cada push que toca `ios/`, los jars o el workflow compila solo. Para compilar a mano: **Actions > RealPhone iOS >
+   Run workflow**. En `macos-26` tarda unos 6 minutos.
+3. Cuando termine, en la ejecución aparecen tres descargas (GitHub las entrega en .zip y las guarda 3 días):
    - `RealPhone.ipa` para SideStore o AltStore.
    - `RealPhone-trollstore.tipa` para TrollStore.
    - `SHA256SUMS` con el hash de los dos.
@@ -105,7 +105,7 @@ nuevo.
 | Botón R de módulos | Hecho |
 | NeoForge | No disponible, igual que en Android |
 | Editor de controles de RealPhone | No portado: se usan los controles táctiles de Amethyst (menú lateral, controles personalizados) |
-| Compilación | **Sin compilar todavía**: se escribió en Windows. La primera compilación es la del workflow |
+| Compilación | Hecha en GitHub Actions con Xcode 26.6 (SDK de iOS 26.5), sin avisos en el código de RealPhone. `RPCoreTests`: 94 comprobaciones, 0 fallos |
 | Prueba en un iPhone real | **Pendiente** |
 
 Si el ticket de módulos o el jar fallan, el juego abre igual y un aviso dice por qué. Si falla el acceso,
