@@ -26,7 +26,9 @@ env:
 
 jobs:
   ipa:
-    runs-on: macos-15
+    # Xcode 26 (SDK de iOS 26), el de la versión del motor. Con Xcode 16.4 (SDK 18.5) de macos-15 falla
+    # JavaLauncher.m del motor: task_set_exception_ports y mach_task_self sin declarar.
+    runs-on: macos-26
     timeout-minutes: 90
     steps:
       - uses: actions/checkout@v4
