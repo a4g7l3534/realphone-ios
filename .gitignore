@@ -1,0 +1,20 @@
+# Este repositorio solo lleva lo que necesita la compilación de RealPhone para iPhone (ver ios/LEEME.md).
+# Todo lo demás (app Android, backend, llaves de firma, SDK, motor Android) queda fuera a propósito.
+/*
+!/.gitignore
+!/.github/
+!/ios/
+!/engine-src/
+/engine-src/*
+!/engine-src/integracion/
+/engine-src/integracion/*
+!/engine-src/integracion/realphone/
+/engine-src/integracion/realphone/*
+!/engine-src/integracion/realphone/src/
+/engine-src/integracion/realphone/src/*
+!/engine-src/integracion/realphone/src/main/
+/engine-src/integracion/realphone/src/main/*
+!/engine-src/integracion/realphone/src/main/assets/
+/engine-src/integracion/realphone/src/main/assets/*
+!/engine-src/integracion/realphone/src/main/assets/realclient/
+__pycache__/

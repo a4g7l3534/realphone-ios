@@ -1,0 +1,254 @@
+{
+  "version": 1,
+  "mods": [
+    {
+      "file": "realmc-client-0.6.6+mc1.17.1.jar",
+      "minecraft": [
+        "1.17.1"
+      ],
+      "sha256": "1df03461f7f933b4441e4f6cb670812a5ba498b88678cff5c95afc3b11905af8",
+      "java": 16
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.18.jar",
+      "minecraft": [
+        "1.18"
+      ],
+      "sha256": "ba9385909b67ee27ecb7c99f8e5bce90f21de5b3a8d242a073c0c72ee7f55d22",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.18.1.jar",
+      "minecraft": [
+        "1.18.1"
+      ],
+      "sha256": "a12c2018c0823c4e2e060d601db5f3940e362aa3990e751ead1818e53894728c",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.18.2.jar",
+      "minecraft": [
+        "1.18.2"
+      ],
+      "sha256": "f2cf0782e229ac04f2bc3283687f8bb1422c7946c00e4e8753433cf08c1073d2",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.19.jar",
+      "minecraft": [
+        "1.19"
+      ],
+      "sha256": "fa6f68a646cbbb8c4ae9e6d33001370d003a0c7694342c5b711ae9870ef820af",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.19.1.jar",
+      "minecraft": [
+        "1.19.1"
+      ],
+      "sha256": "57486c14ce93eeae3ceb685dc31c4813871229eeec4af7047c1e2f62d6513bb5",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.19.2.jar",
+      "minecraft": [
+        "1.19.2"
+      ],
+      "sha256": "fc9d02d9fe822b9daba992097b728b187aa16f1e1cda9d5d37d595af82f0932c",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.19.3.jar",
+      "minecraft": [
+        "1.19.3"
+      ],
+      "sha256": "374012bdafc05ee22f3170ef0d47d04ca53f6aa4c713e0487644e5e3d41b880d",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.19.4.jar",
+      "minecraft": [
+        "1.19.4"
+      ],
+      "sha256": "b2d9f27c6115dacb9c8ce49d227d327a7fdf83482ef9c7f86521f16a7179f924",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.20.1.jar",
+      "minecraft": [
+        "1.20.1"
+      ],
+      "sha256": "a6dc3da67d781d29e128f9b4c9ec8584b8ca6647e84f22c0bc8cfd1d8bcf9632",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.20.2.jar",
+      "minecraft": [
+        "1.20.2"
+      ],
+      "sha256": "2893e0528a7cc55d355b183620b7710d77354b530faa0b4ac65dd020dbd15bb5",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.20.3.jar",
+      "minecraft": [
+        "1.20.3"
+      ],
+      "sha256": "f8e89000ee5215c13022734444729d5b4ae35d94d218788a7cc939a8006a56c9",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.20.4.jar",
+      "minecraft": [
+        "1.20.4"
+      ],
+      "sha256": "726507902e4501095afae4eb987b268e3e101eb587e75e3f6504b3d89a55d847",
+      "java": 17
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.20.5.jar",
+      "minecraft": [
+        "1.20.5"
+      ],
+      "sha256": "7078bebebf4a21fdd0f2d8add032913e6d5fc976000fba33bc2187cf266271da",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.20.6.jar",
+      "minecraft": [
+        "1.20.6"
+      ],
+      "sha256": "b554f169698c8b6fa23a8f14b212e8a534040a801c2b274cec67c9e29feb21e4",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.1.jar",
+      "minecraft": [
+        "1.21.1"
+      ],
+      "sha256": "aef048f778381ffb35ebfe4831374c048ad1b109f5b3cbf59d774a71ea9f33b6",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.10.jar",
+      "minecraft": [
+        "1.21.10"
+      ],
+      "sha256": "97b5eb614b84e9e337ca42fdd2251a7e5df4e0875fc2e409245b2c543e99d429",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.11.jar",
+      "minecraft": [
+        "1.21.11"
+      ],
+      "sha256": "0b1d42ec1070fb29129aeae5d1bd39f7f43da0951f679496c68578756e4383ee",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.2.jar",
+      "minecraft": [
+        "1.21.2"
+      ],
+      "sha256": "fb943b6b3f9ef56d36ddbfbedacba51895f09ca033e7d9e7859a0dda6557abe3",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.3.jar",
+      "minecraft": [
+        "1.21.3"
+      ],
+      "sha256": "b6668487ef67b1350ef45be1d8e596bfd0cac242984d10414abab18f97e94df4",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.4.jar",
+      "minecraft": [
+        "1.21.4"
+      ],
+      "sha256": "7fc4ec11a9f8142aafb029ead1318e0c2b79badb0b9b0935af748924f0b268fa",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.5.jar",
+      "minecraft": [
+        "1.21.5"
+      ],
+      "sha256": "6b0146f02ea0c8bc39fd8bd0ec043541933c9166a8ef38a808ff1ffec3f59f9c",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.6.jar",
+      "minecraft": [
+        "1.21.6"
+      ],
+      "sha256": "893eb61c1fd2edcfeeea7f1d8427240b902c55c6f3340d86f4f9c21d59121e93",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.7.jar",
+      "minecraft": [
+        "1.21.7"
+      ],
+      "sha256": "f54aa5db05c4b0d1e4e12aaaff673f98e039648bf8bbc5d23a709b78028f1217",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.8.jar",
+      "minecraft": [
+        "1.21.8"
+      ],
+      "sha256": "0b67b28b522034d519756b117288d607aed3543471ff9cc707666efa153e2000",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.21.9.jar",
+      "minecraft": [
+        "1.21.9"
+      ],
+      "sha256": "52cefd3b02ca3067f4a622384c20557f40a53cc7ad13bde2798c1cf94d8e59d9",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc26.1.2.jar",
+      "minecraft": [
+        "26.1.2"
+      ],
+      "sha256": "6430ffcfd4c16e68263029cf0b2405f7aa236e51141b9a14fcd8e57f3d0d927d",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc26.2.jar",
+      "minecraft": [
+        "26.2"
+      ],
+      "sha256": "79278c6aeebd263991783318af2317305860e4182fb54ea6c1e8fd4805093032",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc26.3.jar",
+      "minecraft": [
+        "26.3"
+      ],
+      "sha256": "d380a8325e28768b315a0ad0295eed92ba35606ad0a085624b64991e309cfd47",
+      "java": 21
+    },
+    {
+      "file": "realmc-client-0.6.6+mc1.8.9.jar",
+      "minecraft": [
+        "1.8.9"
+      ],
+      "sha256": "46be545f597f94bb2a3f96a31404ea7d66be023463602d466f0d3cb986edc64f",
+      "java": 8
+    },
+    {
+      "file": "realmc-client-neoforge-0.6.6+mc1.21.1.jar",
+      "minecraft": [
+        "1.21.1"
+      ],
+      "loader": "neoforge",
+      "sha256": "0887104ce6379dd1251beef3074688b84a399eebd784ff49055e10d48eadc7ab",
+      "java": 21
+    }
+  ]
+}

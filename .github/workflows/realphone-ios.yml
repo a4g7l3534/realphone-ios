@@ -1,0 +1,118 @@
+# Compila RealPhone para iPhone sobre Amethyst-iOS. Hace falta macOS: Objective-C, el SDK de iOS y ldid.
+# Resultado (pestaña Actions > la ejecución > Artifacts):
+#   RealPhone.ipa             para SideStore / AltStore
+#   RealPhone-trollstore.tipa para TrollStore (JIT automático y más memoria)
+# Un solo trabajo de macOS: en un repositorio privado cada minuto de macOS se descuenta del crédito del plan.
+name: RealPhone iOS
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'ios/**'
+      - 'engine-src/integracion/realphone/src/main/assets/realclient/**'
+      - '.github/workflows/realphone-ios.yml'
+
+concurrency:
+  group: realphone-ios-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  # Versión de Amethyst-iOS probada con ios/integracion/integrar_ios.py. Para subirla: cambiar el commit,
+  # correr las pruebas y revisar los avisos de INTEGRACION_INCOMPLETA.
+  AMETHYST_REPO: https://github.com/AngelAuraMC/Amethyst-iOS.git
+  AMETHYST_COMMIT: f98c4133c72d39e06ceac42b57cc4477c52105fc
+  MANIFEST: engine-src/integracion/realphone/src/main/assets/realclient/mods-manifest-0.6.6.json
+
+jobs:
+  ipa:
+    runs-on: macos-15
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Herramientas
+        run: |
+          xcodebuild -version
+          brew install ldid lld make
+
+      - name: JDK 8 para compilar la parte Java del motor
+        uses: actions/setup-java@v4
+        with:
+          distribution: zulu
+          java-version: '8'
+
+      - name: Pruebas de la lógica de RealPhone (Objective-C)
+        run: |
+          mkdir -p build
+          clang -fobjc-arc -Wall -Werror \
+            ios/realphone/RPCatalog.m ios/realphone/RPHTTP.m ios/realphone/RPMods.m \
+            ios/realphone/RPFabric.m ios/realphone/RPTicket.m ios/realphone/RPSession.m \
+            ios/tests/RPCoreTests.m \
+            -framework Foundation -framework Security -o build/rptests
+          build/rptests "$MANIFEST"
+
+      - name: Amethyst-iOS en el commit fijado
+        run: |
+          git init ios/motor/Amethyst-iOS
+          cd ios/motor/Amethyst-iOS
+          git remote add origin "$AMETHYST_REPO"
+          git fetch --depth 1 origin "$AMETHYST_COMMIT"
+          git checkout --detach FETCH_HEAD
+
+      # Antes de los submódulos: las pruebas copian el motor siete veces
+      - name: Pruebas del script de integración
+        run: python3 -m unittest discover -s ios/integracion -v
+
+      - name: Integrar RealPhone
+        run: |
+          python3 ios/integracion/integrar_ios.py ios/motor/Amethyst-iOS
+          git -C ios/motor/Amethyst-iOS submodule update --init --recursive
+
+      - name: Compilar
+        working-directory: ios/motor/Amethyst-iOS
+        run: |
+          export PATH="$(brew --prefix)/bin:$(brew --prefix lld)/bin:$PATH"
+          # Igual que el workflow de Amethyst-iOS (sin RELEASE=1: deja el registro de depuración)
+          gmake -j"$(sysctl -n hw.ncpu)" dsym package PLATFORM=2 BOOTJDK="$JAVA_HOME/bin"
+          gmake -j"$(sysctl -n hw.ncpu)" dsym package PLATFORM=2 BOOTJDK="$JAVA_HOME/bin" TROLLSTORE_JIT_ENT=1
+
+      - name: Nombres de RealPhone
+        working-directory: ios/motor/Amethyst-iOS/artifacts
+        run: |
+          mv org.angelauramc.amethyst-*-ios.ipa RealPhone.ipa
+          mv org.angelauramc.amethyst-*-ios-trollstore.tipa RealPhone-trollstore.tipa
+          ls -lh RealPhone.ipa RealPhone-trollstore.tipa
+          shasum -a 256 RealPhone.ipa RealPhone-trollstore.tipa | tee SHA256SUMS.txt
+
+      # Los .ipa ya vienen comprimidos; se guardan 3 días para no llenar el espacio de artefactos del plan.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RealPhone.ipa
+          path: ios/motor/Amethyst-iOS/artifacts/RealPhone.ipa
+          compression-level: 0
+          retention-days: 3
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: RealPhone-trollstore.tipa
+          path: ios/motor/Amethyst-iOS/artifacts/RealPhone-trollstore.tipa
+          compression-level: 0
+          retention-days: 3
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SHA256SUMS
+          path: ios/motor/Amethyst-iOS/artifacts/SHA256SUMS.txt
+          retention-days: 3
+
+      - name: Registro si falla
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: registro-compilacion
+          path: |
+            ios/motor/Amethyst-iOS/Natives/build/CMakeFiles/CMakeOutput.log
+            ios/motor/Amethyst-iOS/Natives/build/CMakeFiles/CMakeError.log
+          if-no-files-found: ignore
+          retention-days: 3
